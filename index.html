@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giao Diện Nút START Chuyển Đổi Số</title>
+    <!-- Tải FontAwesome cho các icon công nghệ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -56,16 +57,17 @@
             to { transform: rotate(0deg); }
         }
 
+        /* Hiệu ứng bay ngẫu nhiên từ dưới lên cho các icon với opacity tối đa 20% */
         @keyframes moveUpRandom {
             0% { 
                 top: 110%; 
                 opacity: 0;
             }
             10% {
-                opacity: 0.2;
+                opacity: 0.2; /* Tối đa 20% opacity */
             }
             90% {
-                opacity: 0.2;
+                opacity: 0.2; /* Duy trì 20% opacity */
             }
             100% { 
                 top: -10%; 
@@ -119,7 +121,7 @@
             box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), 0 0 80px rgba(255, 0, 0, 0.3);
             
             /* Text styles */
-            font-size: 64px;
+            font-size: 48px; /* Đã giảm 25% từ 64px xuống 48px */
             font-weight: 700;
             color: white;
             letter-spacing: 3px;
@@ -188,10 +190,11 @@
             
             /* Đặt tọa độ từ tâm để căn giữa chuẩn xác theo trục X */
             transform: translateX(-50%);
-            opacity: 0; /* Khởi tạo ẩn, opacity sẽ chạy từ 0 đến tối đa 0.5 qua keyframe */
+            opacity: 0; 
             animation: moveUpRandom linear infinite;
         }
 
+        /* Khung Popup */
         .popup-backdrop {
             position: fixed;
             top: 0;
@@ -327,11 +330,8 @@
     </div>
 
     <div class="hud-container">
-        
         <!-- Vòng tròn công nghệ (HUD) bằng SVG -->
         <svg class="hud-rings" viewBox="0 0 650 650">
-            <!-- Tâm của viewBox là (325, 325) -->
-            
             <!-- Layer 1: Vòng đứt nét ngoài cùng xoay xuôi -->
             <g class="ring-1">
                 <circle cx="325" cy="325" r="280" fill="none" stroke="#2FE8FF" stroke-width="2" stroke-dasharray="10 30" opacity="0.6"/>
@@ -343,7 +343,6 @@
             <!-- Layer 2: Các vòng nhỏ, hình học xoay ngược -->
             <g class="ring-2">
                 <circle cx="325" cy="325" r="220" fill="none" stroke="#2FE8FF" stroke-width="1" opacity="0.5"/>
-                <!-- Các khối vuông nhỏ viền quanh -->
                 <rect x="320" y="95" width="10" height="20" fill="#2FE8FF" opacity="0.8"/>
                 <rect x="320" y="535" width="10" height="20" fill="#2FE8FF" opacity="0.8"/>
                 <rect x="95" y="320" width="20" height="10" fill="#2FE8FF" opacity="0.8"/>
@@ -370,8 +369,9 @@
             <div class="popup-icon">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h2 class="popup-title">Thành công</h2>
-            <p class="popup-desc">Hệ thống đã được kích hoạt thành công.</p>
+            <h2 class="popup-title">XÁC NHẬN THÀNH CÔNG</h2>
+            <p class="popup-desc">QUYẾT TÂM HOÀN THÀNH THẮNG LỢI ĐỢT THI ĐUA "150 NGÀY ĐÊM"</p>
+            <p class="popup-desc">HOÀN THÀNH 100% CHỈ TIÊU KHÁM SỨC KHỎE TOÀN DÂN NĂM 2026</p>
             <button class="popup-btn" id="closeModalBtn">Đóng</button>
         </div>
     </div>
